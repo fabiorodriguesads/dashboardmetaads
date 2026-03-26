@@ -1467,8 +1467,8 @@
     renderCreativesTable();
   }
 
-  const CREATIVE_HEADERS = ['Prévia','Anúncio','Campanha','Gasto','Impressões','Cliques','CTR','CPC','CPM','Freq.','Conversões','ROAS','Status'];
-  const CREATIVE_FIELDS  = [null,'ad_name','campaign_name','spend','impressions','clicks','ctr','cpc','cpm','frequency','conversions','roas','status'];
+  const CREATIVE_HEADERS = ['Prévia','Anúncio','Conjunto de Anúncios','Campanha','Gasto','Impressões','Cliques','CTR','CPC','CPM','Freq.','Conversões','ROAS','Status'];
+  const CREATIVE_FIELDS  = [null,'ad_name','adset_name','campaign_name','spend','impressions','clicks','ctr','cpc','cpm','frequency','conversions','roas','status'];
 
   function sortCreatives(field) {
     if (!field) return; // Prévia não é ordenável
@@ -1514,6 +1514,7 @@
             : `<div class="creative-thumb-placeholder">🖼</div>`}
         </td>
         <td style="max-width:180px;overflow:hidden;text-overflow:ellipsis;font-weight:500" title="${c.ad_name}">${c.ad_name}</td>
+        <td style="max-width:160px;overflow:hidden;text-overflow:ellipsis;color:var(--text2);font-size:12px" title="${c.adset_name}">${c.adset_name||'—'}</td>
         <td style="max-width:150px;overflow:hidden;text-overflow:ellipsis;color:var(--text3);font-size:12px" title="${c.campaign_name}">${c.campaign_name}</td>
         <td>${fmtMoney(c.spend,c.currency)}</td>
         <td>${fmtNum(c.impressions)}</td>
